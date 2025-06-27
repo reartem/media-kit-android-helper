@@ -13,6 +13,8 @@ add_library(mediakitandroidhelper SHARED native-lib.cpp)
 find_library(log-lib log)
 find_library(android-lib android)
 
+target_link_options(${CMAKE_PROJECT_NAME} PRIVATE "-Wl,-z,max-page-size=16384")
+
 target_link_libraries(
         mediakitandroidhelper
         ${log-lib}
